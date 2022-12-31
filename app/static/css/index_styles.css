@@ -37,7 +37,7 @@ main {
     font-size: 24px;
     font-weight: 300;
     color: #EDF2EF;
-    margin-top: 50px;
+    margin-top: 10px;
     text-align: center;
 }
 
@@ -72,9 +72,24 @@ main {
     width: 100%;
 }
 
-.image-form {
+.url-form {
     display: flex;
     justify-content: space-around;
+}
+
+.url-form-input {
+    font-family: Roboto, sans-serif;
+    font-size: 18px;
+
+    color: #EDF2EF;
+    background-color: #202020;
+
+    border-radius: 10px;
+    border: none;
+
+    padding: 10px 5px;
+    width: 400px;
+    margin-top: 30px;
 }
 
 @media (max-width: 725px) {
