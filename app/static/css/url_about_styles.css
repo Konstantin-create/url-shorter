@@ -27,6 +27,7 @@ main {
 
 .url-button {
     width: 50px;
+    height: 32px;
     border: none;
     border-radius: 0 10px 10px 0;
     background-color: rgba(32, 32, 32, 0.8);
@@ -36,11 +37,12 @@ main {
 
 
 .url-timestamp {
+    position: absolute;
     font-family: "Roboto Light", sans-serif;
     color: #EDF2EF;
-    padding-top: 10px;
-    padding-left: 50px;
     line-height: 2em;
+    bottom: 10px;
+    left: 10px;
 }
 
 @media (max-width: 1000px) {
