@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Url shorter - Url shorted link</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index_styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/url_about_styles.css') }}">
+</head>
+<body>
+<header id="header">
+    <div class="header-items">
+        <a href="/"><h3 class="header-item">Index page</h3></a>
+        <a href="{{ content_data['header_links'][0] }}"><h3 class="header-item">{{ content_data['headers'][0] }}</h3>
+        </a>
+        <a href="{{ content_data['header_links'][1] }}"><h3 class="header-item">{{ content_data['headers'][1] }}</h3>
+        </a>
+    </div>
+</header>
+<main>
+    <div class="left">
+        <div class="url">
+            <p class="url-text" id="url-link">http://{{ server_ip }}{{ url.short_url }}<p>
+            <button class="url-button" onclick="copyContent()" id="url-link-btn">Copy!</button>
+
+        </div>
+        <p class="url-timestamp">URL time stamp: {{ url.time_stamp.strftime("%Y-%m-%d %H:%M") }}</p>
+    </div>
+</main>
+</body>
+<script>
+
+    let text = document.getElementById('url-link').innerHTML
+    const copyContent = async () => {
+        try {
+            await navigator.clipboard.writeText(text);
+            document.getElementById('url-link-btn').innerHTML = 'Copied!'
+            document.getElementById('url-link-btn').style.color = 'green'
+        } catch (err) {
+            // Error
+        }
+    }
+
+</script>
+</html>

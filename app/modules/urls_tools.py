@@ -28,11 +28,20 @@ def get_url(url_id: int) -> Union[Url, EmptyUrl]:
         return EmptyUrl
 
 
+def get_url_by_short_url(short_url: str) -> Union[Url, EmptyUrl]:
+    """Function to get url by short url"""
+
+    try:
+        return Url.query.filter_by(short_url=short_url).first()
+    except:
+        return EmptyUrl
+
+
 def add_url(url: str) -> Union[Url, EmptyUrl]:
     """Function to add url to db"""
 
     letters = string.digits + string.ascii_letters
-    rand_string = ''.join(random.choice(letters) for i in range(Config.SHORT_URL_LENGTH))
+    rand_string = '/urls/'.join(random.choice(letters) for i in range(Config.SHORT_URL_LENGTH))
 
     url_obj = Url(url=url, short_url=rand_string)
     try:
