@@ -10,3 +10,13 @@ class Url(db.Model):
 
     def __repr__(self):
         return f'<Url: {self.short_url} | {self.url}>'
+
+
+class EmptyUrl:
+    id = -1
+    url = ''
+    short_url = ''
+    timestamp = datetime.utcnow()
+
+    def __repr__(self):
+        return '<EmptyUrl: -1>'
