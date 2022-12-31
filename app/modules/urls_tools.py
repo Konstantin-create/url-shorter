@@ -28,7 +28,7 @@ def get_url(url_id: int) -> Union[Url, EmptyUrl]:
         return EmptyUrl
 
 
-def add_url(url: str) -> bool:
+def add_url(url: str) -> Union[Url, EmptyUrl]:
     """Function to add url to db"""
 
     letters = string.digits + string.ascii_letters
@@ -38,9 +38,9 @@ def add_url(url: str) -> bool:
     try:
         db.session.add(url_obj)
         db.session.commit()
-        return False
+        return url_obj
     except:
-        return False
+        return EmptyUrl
 
 
 def delete_url(url_id: int) -> bool:
