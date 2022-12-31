@@ -42,3 +42,13 @@ def add_url(url: str) -> bool:
     except:
         return False
 
+
+def delete_url(url_id: int) -> bool:
+    """Function to delete url"""
+
+    try:
+        db.session.delete(get_url(url_id))
+        db.session.commit()
+        return True
+    except:
+        return False
