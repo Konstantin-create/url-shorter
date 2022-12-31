@@ -21,6 +21,11 @@ def about_page(short_url: str):
     )
 
 
+@app.route('/urls/<string:short_url>')
+def short_url_redirect(short_url: str):
+    return short_url
+
+
 @app.route('/short-url', methods=['GET', 'POST'])
 def short_url_handler():
     if request.method == 'POST':
@@ -28,8 +33,3 @@ def short_url_handler():
         url_obj = urls_tools.add_url(url)
 
         return redirect(f'/about/{url_obj.short_url}')
-
-
-@app.route('/urls/<str:short-url>')
-def short_url_handler():
-    return 'redirect'
