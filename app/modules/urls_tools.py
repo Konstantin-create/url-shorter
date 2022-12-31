@@ -34,5 +34,11 @@ def add_url(url: str) -> bool:
     letters = string.digits + string.ascii_letters
     rand_string = ''.join(random.choice(letters) for i in range(Config.SHORT_URL_LENGTH))
 
-    url_obj = Url(url=url)
+    url_obj = Url(url=url, short_url=rand_string)
+    try:
+        db.session.add(url_obj)
+        db.session.commit()
+        return False
+    except:
+        return False
 
