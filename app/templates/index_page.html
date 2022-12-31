@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ImageBank - Index page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user/index_styles.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+<header id="header">
+    <div class="header-items">
+        <a href="{{ content_data['header_links'][0] }}"><h3 class="header-item">{{ content_data['headers'][0] }}</h3>
+        </a>
+        <a href="{{ content_data['header_links'][1] }}"><h3 class="header-item">{{ content_data['headers'][1] }}</h3>
+        </a>
+    </div>
+</header>
+<main>
+    <h1 class="main-header">UrlShorts - generate short links</h1>
+    <form action="/short-url" class="url-form" method="post">
+        <label class="input-file">
+            <input type="text" name="url" placeholder="Full url: ">
+        </label>
+    </form>
+    <h3 class="sub-header">fast link shortening online</h3>
+</main>
+</body>
+</html>
