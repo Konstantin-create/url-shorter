@@ -28,6 +28,15 @@ def get_url(url_id: int) -> Union[Url, EmptyUrl]:
         return EmptyUrl
 
 
+def get_url_by_short_url(short_url: str) -> Union[Url, EmptyUrl]:
+    """Function to get url by short url"""
+
+    try:
+        return Url.query.filter_by(short_url=short_url).first()
+    except:
+        return EmptyUrl
+
+
 def add_url(url: str) -> Union[Url, EmptyUrl]:
     """Function to add url to db"""
 
