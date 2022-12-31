@@ -41,7 +41,7 @@ def add_url(url: str) -> Union[Url, EmptyUrl]:
     """Function to add url to db"""
 
     letters = string.digits + string.ascii_letters
-    rand_string = ''.join(random.choice(letters) for i in range(Config.SHORT_URL_LENGTH))
+    rand_string = '/urls/'.join(random.choice(letters) for i in range(Config.SHORT_URL_LENGTH))
 
     url_obj = Url(url=url, short_url=rand_string)
     try:

@@ -28,3 +28,8 @@ def short_url_handler():
         url_obj = urls_tools.add_url(url)
 
         return redirect(f'/about/{url_obj.short_url}')
+
+
+@app.route('/urls/<str:short-url>')
+def short_url_handler():
+    return 'redirect'
