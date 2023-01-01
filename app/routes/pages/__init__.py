@@ -23,7 +23,12 @@ def about_page(short_url: str):
 
 @app.route('/urls/<string:short_url>')
 def short_url_redirect(short_url: str):
-    return short_url
+    url = urls_tools.get_url_by_short_url(short_url).url
+    if not url:
+        return redirect('/')
+    if url.find("http://") != 0 and url.find("https://") != 0:
+        url = "http://" + url
+    return redirect(url)
 
 
 @app.route('/short-url', methods=['GET', 'POST'])
