@@ -13,7 +13,7 @@ def api_create_url():
     return {'short_url': '', 'error': 200}
 
 
-@app.route('/api/short/url', methods=['GET', 'POST'])
+@app.route('/api/check-short-url', methods=['GET', 'POST'])
 def api_check_short_url():
     if request.method == 'POST':
         data = request.get_json()
