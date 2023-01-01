@@ -30,6 +30,8 @@ def short_url_redirect(short_url: str):
 def short_url_handler():
     if request.method == 'POST':
         url = request.form.get('url')
+        print(url)
         url_obj = urls_tools.add_url(url)
+        print(url_obj)
 
         return redirect(f'/about/{url_obj.short_url}')
