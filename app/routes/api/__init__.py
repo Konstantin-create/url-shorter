@@ -19,7 +19,7 @@ def api_check_short_url():
         data = request.get_json()
 
         if 'url' not in data or not data['short_url']:
-            return{'valid': False, 'error': 300}
+            return {'valid': False, 'error': 300}
         url = get_url_by_short_url(data['short_url']).url
 
         if url:
