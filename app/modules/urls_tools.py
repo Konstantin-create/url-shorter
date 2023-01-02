@@ -22,26 +22,27 @@ def get_all() -> list:
 def get_url(url_id: int) -> Union[Url, EmptyUrl]:
     """Function to get url by id"""
 
-    try:
-        return Url.quety.get(url_id)
-    except:
-        return EmptyUrl
+    url = Url.quety.get(url_id)
+
+    if url:
+        return url
+    return EmptyUrl
 
 
 def get_url_by_short_url(short_url: str) -> Union[Url, EmptyUrl]:
     """Function to get url by short url"""
 
-    try:
-        return Url.query.filter_by(short_url=short_url).first()
-    except:
-        return EmptyUrl
+    url = Url.query.filter_by(short_url=short_url).first()
+    if url:
+        return url
+    return EmptyUrl
 
 
 def add_url(url: str) -> Union[Url, EmptyUrl]:
     """Function to add url to db"""
 
     letters = string.digits + string.ascii_letters
-    rand_string = '/urls/'.join(random.choice(letters) for i in range(Config.SHORT_URL_LENGTH))
+    rand_string = ''.join(random.choice(letters) for i in range(Config.SHORT_URL_LENGTH))
 
     url_obj = Url(url=url, short_url=rand_string)
     try:
