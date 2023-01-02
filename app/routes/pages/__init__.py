@@ -21,7 +21,7 @@ def about_page(short_url: str):
     )
 
 
-@app.route('/urls/<string:short_url>')
+@app.route('/urls/string:short_url>')
 def short_url_redirect(short_url: str):
     url = urls_tools.get_url_by_short_url(short_url).url
     if not url:
